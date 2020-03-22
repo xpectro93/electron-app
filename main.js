@@ -30,8 +30,23 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 
-  
+
+
 })
+//create menu
+let menu = Menu.buildFromTemplate([
+    {
+        label:'Menu',
+        submenu: [
+            { label: 'Adjust Notification Value'},
+            { label: 'CoinMarketCap'},
+            { label: 'Exit'},
+
+        ]
+    }
+])
+//set menu
+Menu.setApplicationMenu(menu);
 
 app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
