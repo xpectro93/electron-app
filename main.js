@@ -40,7 +40,11 @@ let menu = Menu.buildFromTemplate([
         submenu: [
             { label: 'Adjust Notification Value'},
             { label: 'CoinMarketCap'},
-            { label: 'Exit'},
+            { 
+              label: 'Exit',
+              click () {
+                  app.quit()
+              }},
 
         ]
     }
