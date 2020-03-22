@@ -27,3 +27,7 @@ body {
     padding: 20px;
     text-decoration: underline;
   }
+  html, body {
+    background: rgba(150, 150, 150, 0.288);
+    height:100%;
+  }
