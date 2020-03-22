@@ -1,4 +1,5 @@
-const { app, BrowserWindow, Menu } = require('electron')
+const { app, BrowserWindow, Menu, shell } = require('electron');
+// const shell = require('electron').shell
 
 function createWindow () {
   // Create the browser window.
@@ -11,7 +12,7 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  win.loadFile('index.html')
+  win.loadFile('src/index.html')
 
   // Open the DevTools.
   win.webContents.openDevTools()
@@ -39,15 +40,23 @@ let menu = Menu.buildFromTemplate([
         label:'Menu',
         submenu: [
             { label: 'Adjust Notification Value'},
-            { label: 'CoinMarketCap'},
+            { 
+              label: 'CoinMarketCap',
+              click() {
+                  //on click will open new window on browser
+                  shell.openExternal('http://youtube.com')}
+            },
+            //creates a line to separate options in menu
+            { type : 'separator'},
             { 
               label: 'Exit',
-              click () {
-                  app.quit()
-              }},
+              //on click will close the app
+              click () { app.quit() }
+            },
 
         ]
     }
+    //creating another object here will create another menu
 ])
 //set menu
 Menu.setApplicationMenu(menu);
